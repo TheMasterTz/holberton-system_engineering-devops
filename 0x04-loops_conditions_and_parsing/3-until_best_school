@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-#until implementation
-iter=0
-until [ $iter -gt 10 ]
+#until loop
+
+i=0
+until [ $i -gt 9 ]
 do
 	echo "Best School"
-	((iter++))
+	((i++))
 done
