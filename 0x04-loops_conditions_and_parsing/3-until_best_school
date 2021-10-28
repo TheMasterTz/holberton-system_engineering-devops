@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#until implementation
+iter=0
+until [ $iter -gt 10 ]
+do
+	echo "Best School"
+	((iter++))
+done

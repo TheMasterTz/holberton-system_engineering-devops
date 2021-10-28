@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#while implementation of #1
+iter=0
+while [ $iter -lt 10 ]
+do
+	echo "Best School"
+	((iter++))
+done
