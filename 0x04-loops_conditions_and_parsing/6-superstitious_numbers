@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-#switch case from 1 - 20
-iter=0
+#while with conditions
+iter=1
 while [ $iter -le 20 ]
 do
-	echo $iter
+	echo "$iter"
 	case $iter in
 		4)
 			echo "bad luck from China"
