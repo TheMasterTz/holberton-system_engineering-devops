@@ -50,3 +50,6 @@ You should be able to explain what the issues are with this infrastructure:
 	- No monitoring
 		1. when maintenance is required, there is no other backup server to maintain availability.
 		2. There is no server to handle the load of http requests.
+
+schematic link:
+https://imgur.com/a/66DfT7h
