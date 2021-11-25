@@ -30,6 +30,9 @@ You should be able to explain some of the details of this infrastructure:
 You should be able to explain what the issues are with this infrastructure:
 	- Where are the SPOF
 		This type of infrastructure does not have a firewall to filter malicious requests or malwares.
+	- Security issues:
+		There are no firewalls and no SSL server certificates are used to securely protect our private data, such as credit cards and
+		online payments.
 	- Security issues (no firewall, no HTTPS)
 	- No monitoring:
 		There is no monitoring tool such as application or server monitoring, i.e. there are no statistics on how the resources
