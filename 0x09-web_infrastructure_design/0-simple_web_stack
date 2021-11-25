@@ -1,0 +1,52 @@
+Simple web stack:
+You should be able to explain some details of this infrastructure:
+	- What is a server?
+		A server is a set of computers capable of handling a client's requests and returning a response accordingly. Servers can run on any type of computer,
+		including dedicated computers which are individually referred to as "the server".
+
+	- What is the function of a domain name?
+		An Internet domain, or domain, is a unique name that identifies a web page on the Internet.
+
+		The DNS (Domain Name System) servers are responsible for resolving or translating names on the Web, i.e. translating the IP address of the server where
+		the domain is hosted.
+
+		In other words, all web pages are hosted on an IP address of the type 83.111.22.123. DNS servers are able to convert the domain name into that string of
+		numbers in order to display the correct content that is hosted at that address.
+
+	- What type of DNS www record is at www.foobar.com:
+		CNAME =  Used when running multiple services (such as FTP and web server) on a server with a single IP address.
+
+	- What is the function of a web server?
+		The main function of a Web server is to store the files of a site and broadcast them over the Internet so that they can be visited by users. Basically,
+		a Web server is a large computer that stores and transmits data via the network system called the Internet.
+
+	- What is the function of the application server?
+		Application servers are server programs on a distributed network that provide the execution environment for an application program. The application server
+		collaborates with the web server to provide a dynamic and customized response to a client request.
+
+	- What is the function of the database:
+		A database (database) stores data and connects them in a logical unit together with the metadata necessary for processing. Databases are very useful tools
+		for managing large files and facilitating the retrieval of information.
+
+	- What does the server use to communicate with the computer of the user requesting the website?
+		HTTP, from its acronym in English: "Hypertext Transfer Protocol", is the name of a protocol which allows us to make a request for data and resources, such
+		as HTML documents.
+
+		HTTPS, which stands for "Hypertext Transfer Protocol Security", is an application protocol based on the HTTP protocol, intended for the secure transfer of
+		hypertext data, i.e. it is the secure version of HTTP.
+
+You should be able to explain what the issues are with this infrastructure:
+	- Where are the SPOF
+		A single point of failure or single point of failure1 (SPOF2) is a component of a system that after a failure in its operation causes a global failure in
+		the entire system, rendering it inoperative.
+
+		The place where this failure can occur in our scheme is when the router crashes, making our server unreachable.
+
+	- Security problems (no firewall, no HTTPS)
+		1. do not use http-s:
+		2. do not use firewall
+		3. do not use proxy
+
+	- No monitoring
+		1. when maintenance is required, there is no other backup server to maintain availability.
+		2. There is no server to handle the load of http requests.
