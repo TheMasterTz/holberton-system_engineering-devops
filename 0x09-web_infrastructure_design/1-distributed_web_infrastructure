@@ -19,13 +19,21 @@ You should be able to explain some of the details of this infrastructure:
 			- Active-passive solutions implement an active instance that handles requests and a passive instance that is on standby.
 
 	- How does a primary-replica (master-slave) database cluster work?
-
+		Master-slave synchronization allows data to be replicated from one database server to other servers. When data is replicated,
+		one server acts as the master server and the remaining servers act as slaves.
 
 	- What is the difference between the primary node and the replica node with respect to the application?
+		The difference is that the primary node is in charge of receiving the information, and the replica node is in charge of
+		replicating the database of the primary node.
+
 
 You should be able to explain what the issues are with this infrastructure:
-	- Where are the SPOFs
+	- Where are the SPOF
+		This type of infrastructure does not have a firewall to filter malicious requests or malwares.
 	- Security issues (no firewall, no HTTPS)
-	- No monitoring
+	- No monitoring:
+		There is no monitoring tool such as application or server monitoring, i.e. there are no statistics on how the resources
+		of each server are being managed and functioning.
+
 
 schematic link: https://imgur.com/gallery/aWoAL0T
