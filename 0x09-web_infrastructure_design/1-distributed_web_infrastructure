@@ -1,0 +1,31 @@
+Distributed web infrastructure:
+You should be able to explain some of the details of this infrastructure:
+	- For each additional element, why you are adding it.
+		a proxy server is added to work distributing requests based on the http and tsp protocol.
+		It will be in charge of balancing the loads between the 2 servers.
+
+	- What distribution algorithm is your load balancer configured with and how does it work?
+		The algorithm is called Round-robin:
+			- Round-Robin: requests are distributed among servers cyclically, regardless of server load. It distributes the
+			requests evenly but not the load.
+			- Weighted Round-Robin: Requests are delivered depending on the weight given to each server.
+			- LeastConnection: Each request is served by the server with the least active connections at that time.
+			- Weighted LeastConnection: Requests are delivered depending on the weight and number of connections.
+
+	- Does your load balancer allow active-active or active-passive configuration?
+		Our load balancer is configured in active-active mode:
+			- Active-active solutions implement two or more active system instances and can be used to improve scalability
+			and provide high availability. In active-active deployments, all instances handle requests at the same time.
+			- Active-passive solutions implement an active instance that handles requests and a passive instance that is on standby.
+
+	- How does a primary-replica (master-slave) database cluster work?
+
+
+	- What is the difference between the primary node and the replica node with respect to the application?
+
+You should be able to explain what the issues are with this infrastructure:
+	- Where are the SPOFs
+	- Security issues (no firewall, no HTTPS)
+	- No monitoring
+
+schematic link: https://imgur.com/gallery/aWoAL0T
