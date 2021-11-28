@@ -47,3 +47,5 @@ You must be able to explain what the issues are with this infrastructure:
 
 	- Why having servers with all the same components (database, web server and application server) might be a problem
 		No, because critical errors are usually located in the distribution of the servers.
+
+schematic link: https://imgur.com/gallery/kHIU5Mq
