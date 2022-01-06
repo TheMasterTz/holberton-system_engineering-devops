@@ -6,12 +6,7 @@ sudo apt-get -y upgrade
 sudo apt-get -y install nginx
 sudo service nginx start
 echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/404.html
-newlines="\\
-	error_page 404 /404.html;
-	location = /404.html {
-		root /usr/share/nginx/html;
-		internal;
-	}"
+newlines="\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;}"
 sudo sed -i "27i $newlines" /etc/nginx/sites-available/default
 sudo service nginx restart
 sudo service nginx reload
