@@ -2,7 +2,7 @@
 # Install nginx
 
 new_conf="server_name _;\n\trewrite ^/redirect_me/$ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
-locationError="location @notfound {\n\troot /var/www/html/;\n\tinternal;\n\t}"
+locationError="server_name _;\n\tlocation @notfound {\n\troot /var/www/html/;\n\tinternal;\n}"
 new_error="}\n\n\terror_page 404 = @notfound;\n\t$locationError"
 
 apt update
@@ -11,5 +11,5 @@ ufw allow 'Nginx HTTP'
 echo "Hello World" | sudo tee /var/www/html/index.html
 echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
 sed -i "s/server_name\ _;/$new_conf/g" /etc/nginx/sites-available/default
-sed -i "s/}/$new_error/g" /etc/nginx/sites-available/default
+sed -i "s/server_name\ _;/$new_error/g" /etc/nginx/sites-available/default
 service nginx restart
