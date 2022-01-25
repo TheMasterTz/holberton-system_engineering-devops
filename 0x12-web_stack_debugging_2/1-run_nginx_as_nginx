@@ -18,4 +18,4 @@ path_ports="/etc/nginx/sites-available/default";
 sed -i "s|80 default_server|8080 default_server|" $path_ports
 
 # Execute nginx as nginx user
-sudo -u nginx service nginx start
+sudo -u nginx service nginx restart
