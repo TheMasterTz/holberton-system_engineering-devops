@@ -19,7 +19,6 @@ if __name__ == '__main__':
     with open("{}.csv".format(user_id), 'w', newline='') as f:
         taskWriter = csv.writer(f, quoting=csv.QUOTE_ALL)
         for task in all_user:
-            taskWriter.writerow([user_id,
-                                 user.get('username'),
-                                 task.get('complete'),
+            taskWriter.writerow([int(user_id), user.get('username'),
+                                 task.get('completed'),
                                  task.get('title')])
