@@ -15,6 +15,7 @@ if __name__ == '__main__':
     all_user = requests.get(
         "https://jsonplaceholder.typicode.com/todos?userId={}".
         format(user_id)).json()
+
     with open("{}.csv".format(user_id), 'w', newline='') as f:
         taskWriter = csv.writer(f, quoting=csv.QUOTE_ALL)
         for task in all_user:
