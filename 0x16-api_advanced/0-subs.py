@@ -10,8 +10,15 @@ def number_of_subscribers(subreddit):
     # Set the Default URL strings
     url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
     # Set an User-Agent
-    header = {'User-Agent': 'Python/requests'}
+    user_agent = {'User-Agent': 'Python/requests'}
+
     # Get the Response of the Reddit API
-    request = requests.get(url, header=header).json()
-    subs = request.get("data", {}).get("subscribers", 0)
-    return subs
+    res = requests.get(url, headers=user_agent,
+                       allow_redirects=False)
+
+    # Checks if the subreddit is invalid
+    if res.status_code in [302, 404]:
+        return 0
+
+    # Returns the total subscribers of the subreddit
+    return res.json().get('data').get('subscribers')
