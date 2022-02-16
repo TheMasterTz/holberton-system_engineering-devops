@@ -14,9 +14,7 @@ def top_ten(subreddit):
     headers = {'User-Agent': 'MyHolbertonAPI/0.0.1'}
     response = requests.get(url, headers=headers)
     if (response.status_code == 200):
-        content = response.json()
-        children = content['data']['children']
-        for child in children:
-            print(child['data']['title'])
+        [print(child['data']['title'])
+         for child in response.json()['data']['children']]
     else:
         print(None)
