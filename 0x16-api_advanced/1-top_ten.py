@@ -12,7 +12,7 @@ def top_ten(subreddit):
         print(None)
     req = requests.get('http://www.reddit.com/r/{}/hot.json'.format(subreddit),
                      headers={'User-Agent': 'Python/requests'},
-                     params={'limit': 10})
+                     allow_redirects=False)
     if req.status_code >= 300:
         print('None')
     else:
