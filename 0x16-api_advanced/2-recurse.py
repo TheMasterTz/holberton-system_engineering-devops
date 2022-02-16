@@ -2,8 +2,6 @@
 """
     Module for task 2
 """
-from sqlite3 import paramstyle
-from pytest import param
 import requests
 
 
