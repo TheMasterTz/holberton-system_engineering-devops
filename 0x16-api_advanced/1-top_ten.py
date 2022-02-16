@@ -1,19 +1,20 @@
 #!/usr/bin/python3
 """
-Contains the top_ten function
+    Module for task 0
 """
-
 import requests
 
 
 def top_ten(subreddit):
-    """prints the titles of the top ten hot posts for a given subreddit"""
-    if subreddit is None or type(subreddit) is not str:
-        print(None)
-    req = requests.get('http://www.reddit.com/r/{}/hot.json'.format(subreddit),
-                     headers={'User-Agent': 'MyHolbertonAPI/0.0.1'})
-    if req.status_code == 200:
-        content = req.json()
+    """
+    prints the titles of the first 10 hot posts listed for a given subreddit.
+    """
+
+    url = 'https://www.reddit.com/r/{}/hot.json?limit=10'.format(subreddit)
+    headers = {'User-Agent': 'MyHolbertonAPI/0.0.1'}
+    response = requests.get(url, headers=headers)
+    if (response.status_code == 200):
+        content = response.json()
         children = content['data']['children']
         for child in children:
             print(child['data']['title'])
