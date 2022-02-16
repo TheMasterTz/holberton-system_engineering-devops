@@ -12,15 +12,11 @@ def top_ten(subreddit):
     req = requests.get(
         'http://www.reddit.com/r/{}/about.json'.format(subreddit),
         headers={'User-Agent': 'Python/requests'},
-        params={'limit': '10'})
+        params={'limit': '10'}).json()
 
-    if req.status_code in [404, 302]:
-        print("None")
+    posts = req.get('data', {}).get('children', None)
+    if posts is None or (len(posts) > 0 and posts[0].get('kind') != 't3'):
+        print(None)
     else:
-        json = req.json()
-        if json.get('data') and json.get('data').get('children'):
-            posts = json.get('data').get('children')
-
-            for post in posts:
-                if post.get('data') and post.get('data').get('title'):
-                    print(post.get('data').get('title'))
+        for post in posts:
+            print(post.get('data', {}).get('title', None))
