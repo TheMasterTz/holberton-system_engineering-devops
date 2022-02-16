@@ -11,11 +11,11 @@ def top_ten(subreddit):
     if subreddit is None or type(subreddit) is not str:
         print(None)
     req = requests.get('http://www.reddit.com/r/{}/hot.json'.format(subreddit),
-                     headers={'User-Agent': 'Python/requests'},
-                     params={'limit': 10},
-                     allow_redirects=False)
-    if req.status_code >= 300:
-        print('None')
+                     headers={'User-Agent': 'MyHolbertonAPI/0.0.1'})
+    if req.status_code == 200:
+        content = req.json()
+        children = content['data']['children']
+        for child in children:
+            print(child['data']['title'])
     else:
-        for child in req.json().get("data").get("children"):
-            print(child.get("data").get("title"))
+        print(None)
