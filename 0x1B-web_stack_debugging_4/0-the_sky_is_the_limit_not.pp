@@ -5,7 +5,7 @@ exec { 'limit--for-nginx':
 }
 
 exec { 'restart-nginx':
-  command   => 'service nginx restart',
-  require   => Exec['limit--for-nginx'],
-  path => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+  command => 'service nginx restart',
+  require => Exec['limit--for-nginx'],
+  path    => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
 }
